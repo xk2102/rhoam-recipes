@@ -8,6 +8,8 @@ A TypeScript ReactJS app that connects to Google Firebase.
 
 You can create a recipe..! After logging in, you can save it in our API and view it for production.
 
+(you can use demo@demo.com, demodemo as the credentials for a demo use)
+
 <img src="pics/fhd/1.png" />
 Create a recipe by using the wizard..!
 <img src="pics/fhd/2.png" />
@@ -17,7 +19,7 @@ A set of ingredients is a collection of ingredients and steps..!
 Afterwards you can select the recipe that you want to view..
 <img src="pics/fhd/4.png" />
 <img src="pics/fhd/5.png" />
-...  by click on an ingredient or on the total weight of the mixture.
+... by click on an ingredient or on the total weight of the mixture.
 <img src="pics/fhd/6.png" />
 Finally, input the new value, and the app will calculate the new ingredient quantities..!
 <img src="pics/fhd/7.png" />
