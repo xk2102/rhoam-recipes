@@ -33,7 +33,7 @@ const RecalculatedRecipe: React.FC<{ multiplier: number }> = (props) => {
       </p>
       <p>
         <span id="bold">Total weight: </span>
-        {`${totalIngredientsWeight * multiplier} grams`}
+        {`${(totalIngredientsWeight * multiplier).toFixed(0)} grams`}
       </p>
       {selectedRecipe.setsOfIngredients.map((setOfIngredients, index) => (
         <RecalculatedSetOfIngredients key={index} setOfIngredients={setOfIngredients} setIndex={index} setsOfIngredientsLength={selectedRecipe.setsOfIngredients.length} multiplier={multiplier} />
