@@ -1,0 +1,50 @@
+.recipesList {
+  /* BORDER */
+  border: 0px solid;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: column;
+}
+
+.recipesList > .recipeThumb {
+  /*  SIZE  */
+  /* BORDER */
+  border: 0px solid;
+  border-radius: 10px;
+  /* COLORS */
+  background-color: #272727;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* MARGIN, PADDING */
+  margin: 10px;
+  padding: 20px;
+}
+
+.recipesList > .recipeThumb:hover {
+  /* COLORS */
+  background-color: #303030;
+}
+.recipesList > .recipeThumb:active {
+  /* COLORS */
+  background-color: #363636;
+}
+
+@media (min-width: 600px) {
+  .recipesList {
+    /* DISPLAY */
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .recipesList > .recipeThumb {
+    /*  SIZE  */
+    width: 20%;
+    min-height: 100px;
+  }
+  .recipesList > .recipeThumb:hover {
+    transform: rotate(3deg);
+    transition: transform 100ms;
+  }
+}

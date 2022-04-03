@@ -1,0 +1,14 @@
+.row {
+  /* BORDER */
+  border: 0px solid;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  /* MARGIN, PADDING */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.error {
+  /* COLORS */
+  color: var(--colorRed);
+}

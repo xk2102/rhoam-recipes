@@ -1,0 +1,20 @@
+.footer {
+  /* BORDER */
+  border: 0px solid;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  /* COLOR */
+  color: var(--colorBrown1);
+  /* FONTS */
+  font-size: 0.7em;
+}
+
+/* larger than HD */
+@media (min-width: 1300px) {
+  .footer {
+    justify-content: center;
+  }
+}

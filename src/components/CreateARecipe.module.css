@@ -1,0 +1,53 @@
+.createARecipe {
+  /* BORDER */
+  border: 0px solid;
+  /* MARGIN, PADDING */
+  padding: 10px;
+}
+
+.formRowAlt {
+  /* BORDER */
+  border: 0px solid;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  /* MARGIN, PADDING */
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.formRowAlt > label {
+  /* SIZE */
+  flex: 1;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.formRowAlt > input {
+  /* SIZE */
+  flex: 3;
+  /* BORDER */
+  border: 2px solid #272727;
+  border-radius: 10px;
+  /* MARGIN, PADDING */
+  padding: 10px;
+  /* FONTS */
+  font-family: inherit;
+  font-weight: inherit;
+  /* COLORS */
+  color: inherit;
+  background-color: inherit;
+}
+.formRowAlt input:focus {
+  outline: none !important;
+  /* border: 2px solid #272727; */
+  box-shadow: 0 0 4px #bdbcbc;
+}
+.formRowAlt input:hover {
+  outline: none !important;
+  /* border: 2px solid #272727; */
+  box-shadow: 0 0 4px #bdbcbc;
+}

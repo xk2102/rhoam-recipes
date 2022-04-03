@@ -1,0 +1,60 @@
+.recipe {
+  /* MARGIN, PADDING */
+  padding: 10px;
+}
+
+.row {
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.setOfIngredients {
+  /* BORDER */
+  border: 0px solid;
+  /* MARGIN, PADDING */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.ingredient {
+  /* BORDER */
+  border: 0px solid;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* MARGIN, PADDING */
+  padding: 2px;
+}
+
+.ingredient > .index {
+  /*  SIZE*/
+  flex: 1;
+  text-align: center;
+}
+.ingredient > .name {
+  /* SIZE */
+  flex: 3;
+}
+
+.ingredient > .quantity {
+  /*SIZE  */
+  flex: 1;
+}
+.ingredient > .uom {
+  /* SIZE */
+  flex: 1;
+}
+
+.ingredient > .step {
+  /* SIZE */
+  flex: 5;
+}
+
+.backIcon {
+  font-size: xx-large;
+  margin-right: 10px;
+  cursor: pointer;
+}
