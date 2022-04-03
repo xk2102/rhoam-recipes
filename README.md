@@ -25,6 +25,7 @@ Finally, input the new value, and the app will calculate the new ingredient quan
 Rhoam recipes is built handheld-device first..! After all, it's used in the kitchen!
 
 On your smartphone..
+
 <img src="pics/mobile/1.png" />
 <img src="pics/mobile/2.png" />
 <img src="pics/mobile/3.png" />
