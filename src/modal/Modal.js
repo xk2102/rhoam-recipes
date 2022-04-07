@@ -15,10 +15,18 @@ export default function Modal({ modalIsOpen, resetModal, modalContent, modalType
   const { selectedIngredient } = _GlobalContext;
 
   function onChange_handleNewQuantity(event) {
-    if (event.target.value === "") {
+    // if (event.target.value === "") {
+    //   setNewQuantity(0);
+    // } else {
+    //   setNewQuantity(parseInt(event.target.value));
+    // }
+
+    if (isNaN(event.target.value) || event.target.value < 1) {
       setNewQuantity(0);
     } else {
-      setNewQuantity(parseInt(event.target.value));
+      if (event.target.value.length < 7) {
+        setNewQuantity(event.target.value);
+      }
     }
   }
 
@@ -42,7 +50,7 @@ export default function Modal({ modalIsOpen, resetModal, modalContent, modalType
             <label>{`New ${selectedIngredient.name} quantity (was ${selectedIngredient.quantity}): `}</label>
           </div>
           <div className={styles.row}>
-            <input type="text" value={newQuantity} onChange={(event) => onChange_handleNewQuantity(event)}></input>
+            <input type="number" maxLength="6" min="1" value={newQuantity} onChange={(event) => onChange_handleNewQuantity(event)}></input>
             <label>grams</label>
           </div>
           <RecalculatedRecipe multiplier={multiplier} />
