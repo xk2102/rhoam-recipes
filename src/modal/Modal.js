@@ -57,7 +57,14 @@ export default function Modal({ modalIsOpen, resetModal, modalContent, modalType
           {modalContent}
         </div>
         <div className={styles.footer}>
-          <button className={styles.alert5Button} data-cy="modal-close-button" onClick={resetModal}>
+          <button
+            className={styles.alert5Button}
+            data-cy="modal-close-button"
+            onClick={() => {
+              setNewQuantity(0);
+              resetModal();
+            }}
+          >
             CLOSE
           </button>
         </div>
