@@ -15,12 +15,6 @@ export default function Modal({ modalIsOpen, resetModal, modalContent, modalType
   const { selectedIngredient } = _GlobalContext;
 
   function onChange_handleNewQuantity(event) {
-    // if (event.target.value === "") {
-    //   setNewQuantity(0);
-    // } else {
-    //   setNewQuantity(parseInt(event.target.value));
-    // }
-
     if (isNaN(event.target.value) || event.target.value < 1) {
       setNewQuantity(0);
     } else {

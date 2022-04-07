@@ -14,7 +14,7 @@ export default function Home() {
   const { logout } = useLogout();
   return (
     <div className={styles.home}>
-      <p>Welcome to the Rhoam Recipes 🎂 App.</p>
+      <p>Welcome to the Rhoam Recipes 🎂 App..!</p>
       <p>
         <Link to="/CreateARecipe">🔗Create</Link> a recipe! Then, <Link to="/ViewRecipes">🔗view</Link> it for production..!
       </p>
