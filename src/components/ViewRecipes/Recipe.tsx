@@ -4,7 +4,7 @@ import { HiOutlineArrowLeft } from "react-icons/hi";
 // LIBRARIES ---------------------------------------------
 import { useMediaQuery } from "react-responsive";
 // REACT -------------------------------------------------
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
 // COMPONENTS----------------------------------------------
 import SetOfIngredients from "./SetOfIngredients";
@@ -23,6 +23,7 @@ const Recipe: React.FC = (props) => {
   // ------------------------------------------------------------------
   const _GlobalContext = useContext(GlobalContext);
   const { activateModal, selectedRecipe, setSelectedRecipe, selectedIngredient, setSelectedIngredient, totalIngredientsWeight } = _GlobalContext!;
+  const [showTip, setShowTip] = useState<boolean>(true);
   // USESTATES---------------------------------------------------------
   // ------------------------------------------------------------------
   // USEEFFECTS--------------------------------------------------------
@@ -42,6 +43,7 @@ const Recipe: React.FC = (props) => {
         {isMobileScreen && <HiOutlineArrowLeft size={30} style={{ marginRight: "15px" }} className="backIcon" onClick={() => setSelectedRecipe(emptyRecipe)} />}
         <h1>{selectedRecipe.name}</h1>
       </div>
+      {showTip && <Tip setShowTip={setShowTip} />}
       <p>
         <span id="bold">Info: </span>
         {selectedRecipe.info}
@@ -75,3 +77,15 @@ const Recipe: React.FC = (props) => {
 };
 
 export default Recipe;
+
+const Tip: React.FC<{ setShowTip: React.Dispatch<React.SetStateAction<boolean>> }> = (props) => {
+  const { setShowTip } = props;
+  return (
+    <div className={`animate ${styles.tip}`} onClick={() => setShowTip(false)}>
+      <p>
+        Tip: click on <span id="bold">Total weight</span> or an <span id="bold">ingredient</span> to select it and then enter a desired quantity to view the new quantities..
+        <br></br>(tap to hide)
+      </p>
+    </div>
+  );
+};

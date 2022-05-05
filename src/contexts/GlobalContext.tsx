@@ -24,6 +24,8 @@ type GlobalContextType = {
   selectedIngredient: ingredient;
   setSelectedIngredient: React.Dispatch<React.SetStateAction<ingredient>>;
   totalIngredientsWeight: number;
+  showTip: boolean;
+  setShowTip: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -65,7 +67,7 @@ export const GlobalContextProvider = ({ children }: GlobalContextProviderProps) 
     });
     setTotalIngredientsWeight(total);
   }, [selectedRecipe]);
-  // useEffect(() => console.log(selectedRecipe), [selectedRecipe]);
+  const [showTip, setShowTip] = useState<boolean>(true);
   return (
     <GlobalContext.Provider
       value={{
@@ -86,7 +88,10 @@ export const GlobalContextProvider = ({ children }: GlobalContextProviderProps) 
         selectedIngredient,
         setSelectedIngredient,
         totalIngredientsWeight,
-      }}>
+        showTip,
+        setShowTip,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

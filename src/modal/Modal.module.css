@@ -108,7 +108,7 @@
 
 .row input {
   /* SIZE */
-  flex: 1;
+  /* flex: 1; */
   /* BORDER */
   border: 2px solid #272727;
   border-radius: 10px;

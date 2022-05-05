@@ -60,3 +60,26 @@
   /* SIZE */
   flex: 5;
 }
+
+.tip {
+  /* BORDER */
+  border: 0px solid;
+  border-radius: 10px;
+  /* COLORS */
+  background-color: #272727;
+  /* DISPLAY */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* MARGIN, PADDING */
+  padding: 10px;
+}
+
+.tip:hover {
+  /* COLORS */
+  background-color: #303030;
+}
+.tip:active {
+  /* COLORS */
+  background-color: #363636;
+}
