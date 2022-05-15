@@ -36,10 +36,10 @@ export default function Modal({ modalIsOpen, resetModal, modalContent, modalType
   const renderAlertSeverity3Modal = () => {
     return (
       <div className={`${styles.modal} animate`}>
-        <div className={styles.header}>
-          <Logo />
-        </div>
         <div className={styles.content}>
+          <div className={styles.header}>
+            <Logo />
+          </div>
           <div className={styles.row}>
             <label>{`New ${selectedIngredient.name} quantity (was ${selectedIngredient.quantity}): `}</label>
           </div>

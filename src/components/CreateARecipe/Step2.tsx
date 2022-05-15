@@ -112,48 +112,52 @@ const Step2 = ({ step, setStep, recipe, setRecipe, currentSoiIndex }: Step2Props
   }
   return (
     <div className={`animate ${styles.step}`}>
-      <h2>Enter the 1st set of ingredients</h2>
-      <h3>Ingredients</h3>
-      {recipe.setsOfIngredients[currentSoiIndex].ingredients.map((ingredient, index) => (
-        <div className={`animate ${styles.row}`} key={index}>
-          <label>{`${index + 1}`}</label>
-          <input name="data" type="text" value={ingredient.name} placeholder="Ingredient name.." onChange={(event) => onChange_handleIngredients(event, index)}></input>
-          <input
-            name="quantity"
-            className={styles.quantity}
-            type="text"
-            value={ingredient.quantity}
-            placeholder="Ingredient quantity (grams).."
-            onChange={(event) => onChange_handleIngredients(event, index)}></input>
-          <label style={{ fontSize: "smaller" }}>grams</label>
+      <div className={styles.top}>
+        <h2>Enter the 1st set of ingredients</h2>
+        <h3>Ingredients</h3>
+        {recipe.setsOfIngredients[currentSoiIndex].ingredients.map((ingredient, index) => (
+          <div className={`animate ${styles.row}`} key={index}>
+            <label>{`${index + 1}`}</label>
+            <input name="data" type="text" value={ingredient.name} placeholder="Ingredient name.." onChange={(event) => onChange_handleIngredients(event, index)}></input>
+            <input
+              name="quantity"
+              className={styles.quantity}
+              type="text"
+              value={ingredient.quantity}
+              placeholder="Ingredient quantity (grams).."
+              onChange={(event) => onChange_handleIngredients(event, index)}
+            ></input>
+            <label style={{ fontSize: "smaller" }}>grams</label>
+          </div>
+        ))}
+
+        <div className={styles.row}>
+          <button onClick={() => onClick_handleIngredientsSize("pop")}>REMOVE LAST INGREDIENT</button>
+          <button onClick={() => onClick_handleIngredientsSize("push")}>ADD ONE INGREDIENT</button>
         </div>
-      ))}
+        <div className={styles.row}></div>
+        {ingredientError && <p className={styles.error}>{ingredientError}</p>}
+        <h3>Steps</h3>
+        {recipe.setsOfIngredients[currentSoiIndex].steps.map((step, index) => (
+          <div className={`animate ${styles.row}`} key={index}>
+            <label>{`${index + 1}`}</label>
+            <input type="text" value={step.name} placeholder="Enter step description.." onChange={(event) => onChange_handleSteps(event, index)}></input>
+          </div>
+        ))}
 
-      <div className={styles.row}>
-        <button onClick={() => onClick_handleIngredientsSize("pop")}>REMOVE LAST INGREDIENT</button>
-        <button onClick={() => onClick_handleIngredientsSize("push")}>ADD ONE INGREDIENT</button>
-      </div>
-      <div className={styles.row}></div>
-      {ingredientError && <p className={styles.error}>{ingredientError}</p>}
-      <h3>Steps</h3>
-      {recipe.setsOfIngredients[currentSoiIndex].steps.map((step, index) => (
-        <div className={`animate ${styles.row}`} key={index}>
-          <label>{`${index + 1}`}</label>
-          <input type="text" value={step.name} placeholder="Enter step description.." onChange={(event) => onChange_handleSteps(event, index)}></input>
+        <div className={styles.row}>
+          <button onClick={() => onClick_handleStepSize("pop")}>REMOVE LAST STEP</button>
+          <button onClick={() => onClick_handleStepSize("push")}>ADD ONE STEP</button>
         </div>
-      ))}
-
-      <div className={styles.row}>
-        <button onClick={() => onClick_handleStepSize("pop")}>REMOVE LAST STEP</button>
-        <button onClick={() => onClick_handleStepSize("push")}>ADD ONE STEP</button>
+        {stepError && <p className={styles.error}>{stepError}</p>}
       </div>
-      {stepError && <p className={styles.error}>{stepError}</p>}
-
-      <div className={styles.row}>
-        <button onClick={() => setStep(step - 1)}>BACK</button>
-      </div>
-      <div className={styles.row}>
-        <button onClick={() => proceed()}>NEXT</button>
+      <div className={styles.bottom}>
+        <div className={styles.row}>
+          <button onClick={() => setStep(step - 1)}>BACK</button>
+        </div>
+        <div className={styles.row}>
+          <button onClick={() => proceed()}>NEXT</button>
+        </div>
       </div>
     </div>
   );

@@ -38,21 +38,25 @@ const Step3 = ({ step, setStep, currentSoiIndex, setCurrentSoiIndex, recipe, set
   }
   return (
     <div className={`animate ${styles.step}`}>
-      <h2>Would you like to add another set of ingredients..?</h2>
-      <div className={styles.row}>
-        <button onClick={() => setStep(5)}>NO, thank you</button>
-        <button
-          onClick={() => {
-            setStep(4);
-            setCurrentSoiIndex(currentSoiIndex + 1);
-            onClick_addASetOfIngredients();
-          }}>
-          Yes, please
-        </button>
+      <div className={styles.top}>
+        <h2>Would you like to add another set of ingredients..?</h2>
+        <div className={styles.row}>
+          <button onClick={() => setStep(5)}>NO, thank you</button>
+          <button
+            onClick={() => {
+              setStep(4);
+              setCurrentSoiIndex(currentSoiIndex + 1);
+              onClick_addASetOfIngredients();
+            }}
+          >
+            Yes, please
+          </button>
+        </div>
+        <div className={styles.row}>
+          <button onClick={() => setStep(2)}>BACK (to 1st set of ingredients)</button>
+        </div>
       </div>
-      <div className={styles.row}>
-        <button onClick={() => setStep(2)}>BACK (to 1st set of ingredients)</button>
-      </div>
+      <div className={styles.bottom}></div>
     </div>
   );
 };

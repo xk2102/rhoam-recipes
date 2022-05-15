@@ -14,9 +14,9 @@ export default function Home() {
   const { logout } = useLogout();
   return (
     <div className={styles.home}>
-      <p>Welcome to the Rhoam Recipes 🎂 App..!</p>
+      <h1>Welcome to the Rhoam Recipes 🎂 App..!</h1>
       <p>
-        <Link to="/CreateARecipe">🔗Create</Link> a recipe! Then, <Link to="/ViewRecipes">🔗view</Link> it for production..!
+        <Link to="/CreateARecipe">Create</Link> a recipe! Then, <Link to="/ViewRecipes">view</Link> it for production..!
       </p>
       <p>You can modify the ingredient quantities based on a single ingredient or the total weight of all ingredients.</p>
 

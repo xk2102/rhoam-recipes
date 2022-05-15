@@ -73,6 +73,7 @@
   align-items: center;
   /* MARGIN, PADDING */
   padding: 10px;
+  cursor: pointer;
 }
 
 .tip:hover {

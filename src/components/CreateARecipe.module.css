@@ -3,6 +3,11 @@
   border: 0px solid;
   /* MARGIN, PADDING */
   padding: 10px;
+  /* size */
+  flex: 1;
+  /* display */
+  display: flex;
+  flex-direction: column;
 }
 
 .formRowAlt {

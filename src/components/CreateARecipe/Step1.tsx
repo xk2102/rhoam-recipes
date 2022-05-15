@@ -56,29 +56,32 @@ const Step1: React.FC<{ step: number; setStep: React.Dispatch<React.SetStateActi
   }
   return (
     <div className={`animate ${styles.step}`}>
-      <h2>Let's start with: </h2>
-      <div className={styles.row}>
-        <label>Name: </label>
-        <input required value={recipe.name} name="name" type="text" placeholder="Enter a name.." onChange={(event) => onChange_handleRecipe(event)}></input>
+      <div className={styles.top}>
+        <h2>Let's start with: </h2>
+        <div className={styles.row}>
+          <label>Name: </label>
+          <input required value={recipe.name} name="name" type="text" placeholder="Enter a name.." onChange={(event) => onChange_handleRecipe(event)}></input>
+        </div>
+        <div className={styles.row}>
+          <label>Info: </label>
+          <input value={recipe.info} name="info" type="text" placeholder="Enter some info.." onChange={(event) => onChange_handleRecipe(event)}></input>
+        </div>
+        <div className={styles.row}>
+          <label>Prep time (minutes): </label>
+          <input value={recipe.prepTime} name="prepTime" type="text" placeholder="Enter prep time.." onChange={(event) => onChange_handleRecipe(event)}></input>
+        </div>
+        <div className={styles.row}>
+          <label>Cook time (minutes): </label>
+          <input value={recipe.cookTime} name="cookTime" type="text" placeholder="Enter cook time.." onChange={(event) => onChange_handleRecipe(event)}></input>
+        </div>
+        {error && <p className={styles.error}>{error}</p>}
       </div>
-      <div className={styles.row}>
-        <label>Info: </label>
-        <input value={recipe.info} name="info" type="text" placeholder="Enter some info.." onChange={(event) => onChange_handleRecipe(event)}></input>
+      <div className={styles.bottom}>
+        <div className={styles.row}>
+          <button onClick={() => onClick_handleReset()}>CLEAR</button>
+          <button onClick={() => proceed()}>NEXT</button>
+        </div>
       </div>
-      <div className={styles.row}>
-        <label>Prep time (minutes): </label>
-        <input value={recipe.prepTime} name="prepTime" type="text" placeholder="Enter prep time.." onChange={(event) => onChange_handleRecipe(event)}></input>
-      </div>
-      <div className={styles.row}>
-        <label>Cook time (minutes): </label>
-        <input value={recipe.cookTime} name="cookTime" type="text" placeholder="Enter cook time.." onChange={(event) => onChange_handleRecipe(event)}></input>
-      </div>
-      <div className={styles.row}>
-        <button onClick={() => onClick_handleReset()}>CLEAR</button>
-        <button onClick={() => proceed()}>NEXT</button>
-      </div>
-
-      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 };

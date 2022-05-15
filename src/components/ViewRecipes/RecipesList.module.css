@@ -21,6 +21,7 @@
   /* MARGIN, PADDING */
   margin: 10px;
   padding: 20px;
+  cursor: pointer;
 }
 
 .recipesList > .recipeThumb:hover {

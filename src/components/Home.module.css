@@ -1,8 +1,11 @@
 .home {
+  flex: 1;
   /* BORDER */
   border: 0px solid;
   /* MARGIN, PADDING */
   padding: 10px;
   /* SIZE */
   /* DISPLAY */
+  display: flex;
+  flex-direction: column;
 }

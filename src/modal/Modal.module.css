@@ -45,14 +45,14 @@
   /* DISPLAY */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-content: center;
   align-items: center;
 }
 
 .modal > .header {
   /* BORDER */
-  border: 0px solid;
+  border: 1px solid;
   /* SIZE */
   width: 100%;
   /* COLOR */
@@ -76,6 +76,7 @@
   /* MARGIN, PADDING */
   padding-top: 20px;
   padding-bottom: 20px;
+  flex: 1;
 }
 .modal > .footer {
   /* BORDER */
