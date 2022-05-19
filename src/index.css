@@ -29,6 +29,13 @@
   --colorBrown1: #8d685e;
   --colorBrown2: #a1776b;
   --colorBrown3: #cc9b8d;
+  --black0: #000000;
+  --black1: #141414;
+  --black2: #272727;
+  --black3: #373737;
+  --black4: #474747;
+  --white0: #ffffff;
+  --white1: #bdbcbc;
 }
 
 html,
@@ -38,7 +45,7 @@ body {
   font-family: Quicksand-Regular;
   font-weight: 600;
   background-color: #000000;
-  color: #bdbcbc;
+  color: var(--white1);
   overflow: hidden; /* Hide scrollbars */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -54,7 +61,24 @@ a {
   text-decoration: none;
   color: var(--colorBrown1);
 }
-
+button {
+  /* padding */
+  padding: 1.25rem;
+  /* margin */
+  margin: 0.5rem 0px 0.5rem 0px;
+  /* transition */
+  transition: all 150ms ease-in-out;
+  /* border */
+  border: 0px;
+  border-radius: 0.5rem;
+  /* fonts */
+  font-family: inherit;
+  font-weight: inherit;
+  /* cursor */
+  cursor: pointer;
+  /* color */
+  color: inherit;
+}
 /* ----------- */
 /* -img ----- */
 /* ----------- */

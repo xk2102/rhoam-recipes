@@ -4,6 +4,7 @@ import styles from "./Login.module.css";
 import { useLogin } from "../../firebaseHooks/useLogin";
 import { useAuthContext } from "../../firebaseHooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
+import { InputRow } from "../InputRow";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -11,15 +12,50 @@ export const Login = () => {
   // STATE ----------------------------------------------------
   // ----------------------------------------------------------
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const { error, login, successMessage } = useLogin();
   const { user } = useAuthContext();
   // ----------------------------------------------------------
   // HANDLERS--------------------------------------------------
   // ----------------------------------------------------------
+  useEffect(() => console.log(password), [password]);
+  function isEmail(email) {
+    // eslint-disable-next-line
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+  }
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    login(email, password);
+
+    let _emailError = "";
+    let _passwordError = "";
+    setEmailError("");
+    setPasswordError("");
+
+    if (!isEmail(email)) {
+      _emailError = "not-an-email";
+      setEmailError("not-an-email");
+    } else {
+      _emailError = "ok";
+      setEmailError("ok");
+    }
+
+    if (password === "") {
+      _passwordError = "empty-password";
+      setPasswordError("empty-password");
+    } else {
+      _passwordError = "ok";
+      setPasswordError("ok");
+    }
+
+    _emailError === "ok" && _passwordError === "ok" && login(email, password);
   };
   // ----------------------------------------------------------
   // RETURN----------------------------------------------------
@@ -28,19 +64,13 @@ export const Login = () => {
     <div className={styles.login}>
       <h1>Login</h1>
       <form onSubmit={handleSubmit} className={styles.loginForm}>
-        <div className={styles.row}>
-          <label>Email</label>
-          <input required type="email" onChange={(event) => setEmail(event.target.value)} value={email}></input>
-        </div>
-        <div className={styles.row}>
-          <label>Password</label>
-          <input required type="password" onChange={(event) => setPassword(event.target.value)} value={password}></input>
-        </div>
-
+        <InputRow label="Email" value={email} handleValue={handleEmail} valueError={emailError} />
+        <InputRow label="Password" value={password} handleValue={handlePassword} valueError={passwordError} />
         <button>LOGIN</button>
         {error && <p>{error}</p>}
         {successMessage === "Successfull login..!" && <p>{successMessage}</p>}
       </form>
+      {passwordError}
     </div>
   );
 };

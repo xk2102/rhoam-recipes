@@ -2,25 +2,87 @@ import styles from "./Register.module.css";
 import { useState } from "react";
 // HOOKS
 import { useRegister } from "../../firebaseHooks/useRegister";
+import { InputRow } from "../InputRow";
 export const Register = () => {
   // ----------------------------------------------------------
   // STATE ----------------------------------------------------
   // ----------------------------------------------------------
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordA, setPasswordA] = useState("");
+  const [passwordAError, setPasswordAError] = useState("");
+  const [passwordB, setPasswordB] = useState("");
+  const [passwordBError, setPasswordBError] = useState("");
   const [passwordsDoNotMatchError, setPasswordsDoNotMatchError] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+
   const { error, register, successMessage } = useRegister();
   // ----------------------------------------------------------
   // HANDLERS--------------------------------------------------
   // ----------------------------------------------------------
+  function isEmail(email) {
+    // eslint-disable-next-line
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+  }
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
+  const handlePasswordA = (event) => {
+    setPasswordA(event.target.value);
+  };
+  const handlePasswordB = (event) => {
+    setPasswordB(event.target.value);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (password === passwordConfirm) {
-      setPasswordsDoNotMatchError("");
-      register(email, password);
+
+    let _emailError = "";
+    let _passwordAError = "";
+    let _passwordBError = "";
+    let _passwordsDoNotMatchError = "";
+
+    setEmailError("");
+    setPasswordAError("");
+    setPasswordBError("");
+    setPasswordsDoNotMatchError("");
+
+    if (!isEmail(email)) {
+      _emailError = "not-an-email";
+      setEmailError("not-an-email");
     } else {
-      setPasswordsDoNotMatchError("Passwords do not match..!");
+      _emailError = "ok";
+      setEmailError("ok");
+    }
+
+    if (passwordA === "") {
+      _passwordAError = "empty-password";
+      setPasswordAError("empty-password");
+    } else {
+      _passwordAError = "ok";
+      setPasswordAError("ok");
+    }
+
+    if (passwordB === "") {
+      _passwordBError = "empty-password";
+      setPasswordBError("empty-password");
+    } else {
+      _passwordBError = "ok";
+      setPasswordBError("ok");
+    }
+
+    if (passwordA !== passwordB) {
+      _passwordsDoNotMatchError = "no-match";
+      setPasswordsDoNotMatchError("no-match");
+      setPasswordAError("no-match");
+      setPasswordBError("no-match");
+    } else {
+      _passwordsDoNotMatchError = "ok";
+      setPasswordsDoNotMatchError("ok");
+      setPasswordAError("ok");
+      setPasswordBError("ok");
+    }
+
+    if (_emailError === "ok" && _passwordAError === "ok" && _passwordBError === "ok" && _passwordsDoNotMatchError === "ok") {
+      // register(email, passwordA);
     }
   };
   // ----------------------------------------------------------
@@ -30,18 +92,9 @@ export const Register = () => {
     <div className={styles.register}>
       <h1>Register</h1>
       <form className={styles.registerForm} onSubmit={handleSubmit}>
-        <div className={styles.row}>
-          <label>Email:</label>
-          <input required type="email" onChange={(event) => setEmail(event.target.value)} value={email}></input>
-        </div>
-        <div className={styles.row}>
-          <label>Password:</label>
-          <input required type="password" onChange={(event) => setPassword(event.target.value)} value={password}></input>
-        </div>
-        <div className={styles.row}>
-          <label>Password (confirm):</label>
-          <input required type="password" onChange={(event) => setPasswordConfirm(event.target.value)} value={passwordConfirm}></input>
-        </div>
+        <InputRow label="Email" value={email} handleValue={handleEmail} valueError={emailError} />
+        <InputRow label="Password" value={passwordA} handleValue={handlePasswordA} valueError={passwordAError} />
+        <InputRow label="Password (confirm)" value={passwordB} handleValue={handlePasswordB} valueError={passwordBError} />
         <button>REGISTER</button>
         {error && <p>{error}</p>}
         {passwordsDoNotMatchError}

@@ -1,0 +1,70 @@
+/* parent display flex column */
+
+.inputRow {
+  /* border */
+  /* border: 2px solid; */
+  /* position */
+  position: relative;
+  /* display */
+  display: flex;
+  flex-direction: column;
+  /* margin */
+  margin: 0.5rem 0px 0.5rem 0px;
+}
+
+.form__input {
+  /* padding */
+  padding: 1rem;
+  /* fonts */
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  /* colors */
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+  /* border */
+  border: 2px solid var(--black2);
+  border-radius: 0.5rem;
+}
+
+.form__input:hover {
+  border-color: var(--colorBrown1);
+}
+.form__input:focus {
+  border-color: var(--colorBrown2);
+}
+
+.form__label {
+  /* position */
+  position: absolute;
+  top: 1.15rem;
+  left: 1rem;
+  transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  /* colors */
+  background-color: #141414;
+  /* margin, padding */
+  padding: 0 0.5rem;
+  /* events */
+  cursor: text;
+  pointer-events: none;
+}
+/* 
+1. When the input is in the focus state
+reduce the size of the label and move upwards 
+
+2. Keep label state when content is in input field 
+*/
+.form__input:focus ~ .form__label,
+.form__input:not(:placeholder-shown).form__input:not(:focus) ~ .form__label {
+  top: -0.5rem;
+  font-size: 0.8rem;
+  left: 0.8rem;
+}
+
+.checkIcon {
+  /* position */
+  position: absolute;
+  top: 1.15rem;
+  left: 92%;
+}
