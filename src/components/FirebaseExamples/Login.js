@@ -64,13 +64,14 @@ export const Login = () => {
     <div className={styles.login}>
       <h1>Login</h1>
       <form onSubmit={handleSubmit} className={styles.loginForm}>
-        <InputRow label="Email" value={email} handleValue={handleEmail} valueError={emailError} />
-        <InputRow label="Password" value={password} handleValue={handlePassword} valueError={passwordError} />
-        <button>LOGIN</button>
-        {error && <p>{error}</p>}
+        <InputRow label="Email" name="email" type="email" value={email} handleValue={handleEmail} valueError={emailError} />
+        <InputRow label="Password" name="password" type="password" value={password} handleValue={handlePassword} valueError={passwordError} />
+        <button id={styles.login}>LOGIN</button>
+        {error && <p className={styles.error}>{error}</p>}
+        {emailError === "not-an-email" && <p className={styles.error}>Please enter a valid email..</p>}
+        {passwordError === "empty-password" && <p className={styles.error}>Please enter a valid password..</p>}
         {successMessage === "Successfull login..!" && <p>{successMessage}</p>}
       </form>
-      {passwordError}
     </div>
   );
 };

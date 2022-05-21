@@ -15,15 +15,20 @@
   flex-direction: column;
 }
 
-.loginForm > button {
+.loginForm > button#login {
   /* colors */
   background-color: var(--black2);
 }
-.loginForm > button:hover {
+.loginForm > button#login:hover {
   /* colors */
   background-color: var(--black3);
 }
-.loginForm > button:active {
+.loginForm > button#login:active {
   /* colors */
   background-color: var(--black4);
+}
+
+.error {
+  /* COLORS */
+  color: var(--colorRed);
 }

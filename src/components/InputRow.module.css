@@ -26,6 +26,7 @@
   /* border */
   border: 2px solid var(--black2);
   border-radius: 0.5rem;
+  transition: border-color 200ms ease-in-out;
 }
 
 .form__input:hover {

@@ -53,6 +53,18 @@ export const Register = () => {
       setEmailError("ok");
     }
 
+    if (passwordA !== passwordB) {
+      _passwordsDoNotMatchError = "no-match";
+      setPasswordsDoNotMatchError("no-match");
+      setPasswordAError("no-match");
+      setPasswordBError("no-match");
+    } else {
+      _passwordsDoNotMatchError = "ok";
+      setPasswordsDoNotMatchError("ok");
+      setPasswordAError("ok");
+      setPasswordBError("ok");
+    }
+
     if (passwordA === "") {
       _passwordAError = "empty-password";
       setPasswordAError("empty-password");
@@ -69,20 +81,8 @@ export const Register = () => {
       setPasswordBError("ok");
     }
 
-    if (passwordA !== passwordB) {
-      _passwordsDoNotMatchError = "no-match";
-      setPasswordsDoNotMatchError("no-match");
-      setPasswordAError("no-match");
-      setPasswordBError("no-match");
-    } else {
-      _passwordsDoNotMatchError = "ok";
-      setPasswordsDoNotMatchError("ok");
-      setPasswordAError("ok");
-      setPasswordBError("ok");
-    }
-
     if (_emailError === "ok" && _passwordAError === "ok" && _passwordBError === "ok" && _passwordsDoNotMatchError === "ok") {
-      // register(email, passwordA);
+      register(email, passwordA);
     }
   };
   // ----------------------------------------------------------
@@ -92,12 +92,15 @@ export const Register = () => {
     <div className={styles.register}>
       <h1>Register</h1>
       <form className={styles.registerForm} onSubmit={handleSubmit}>
-        <InputRow label="Email" value={email} handleValue={handleEmail} valueError={emailError} />
-        <InputRow label="Password" value={passwordA} handleValue={handlePasswordA} valueError={passwordAError} />
-        <InputRow label="Password (confirm)" value={passwordB} handleValue={handlePasswordB} valueError={passwordBError} />
-        <button>REGISTER</button>
-        {error && <p>{error}</p>}
-        {passwordsDoNotMatchError}
+        <InputRow label="Email" name="email" type="email" value={email} handleValue={handleEmail} valueError={emailError} />
+        <InputRow label="Password" type="password" name="passwordA" value={passwordA} handleValue={handlePasswordA} valueError={passwordAError} />
+        <InputRow label="Password (confirm)" type="password" name="passwordB" value={passwordB} handleValue={handlePasswordB} valueError={passwordBError} />
+        <button id={styles.register}>REGISTER</button>
+        {error && <p className={styles.error}>{error}</p>}
+        {emailError === "not-an-email" && <p className={styles.error}>Please enter a valid email..</p>}
+        {passwordAError === "empty-password" && <p className={styles.error}>Please enter a valid password..</p>}
+        {passwordBError === "empty-password" && <p className={styles.error}>Please enter a valid password..</p>}
+        {passwordsDoNotMatchError === "no-match" && <p className={styles.error}>Passwords do not match..!</p>}
         {successMessage === "Successfull registration..!" && <p>{successMessage}</p>}
       </form>
     </div>

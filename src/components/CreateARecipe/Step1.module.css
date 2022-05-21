@@ -16,3 +16,22 @@
   /* COLORS */
   color: var(--colorRed);
 }
+
+.step > .bottom > .row {
+  display: flex;
+  flex-direction: row;
+}
+
+.step > .bottom > .row > button#next,
+.step > .bottom > .row > button#clear {
+  flex: 1;
+  background-color: var(--black2);
+}
+.step > .bottom > .row > button#next:hover,
+.step > .bottom > .row > button#clear:hover {
+  background-color: var(--black3);
+}
+.step > .bottom > .row > button#next:active,
+.step > .bottom > .row > button#clear:active {
+  background-color: var(--black4);
+}
