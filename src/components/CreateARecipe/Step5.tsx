@@ -21,13 +21,11 @@ type Step5Props = {
   setStep: React.Dispatch<React.SetStateAction<number>>;
   recipe: recipe;
   setRecipe: React.Dispatch<React.SetStateAction<recipe>>;
-  currentSoiIndex: number;
-  setCurrentSoiIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 // --------------------------------------------------------------
 // --------------------------------------------------------------
 // --------------------------------------------------------------
-const Step5 = ({ step, setStep, currentSoiIndex, setCurrentSoiIndex, recipe, setRecipe }: Step5Props) => {
+const Step5 = ({ step, setStep, recipe, setRecipe }: Step5Props) => {
   // CONTEXT
   const navigate = useNavigate();
   const { user } = useAuthContext();
@@ -37,17 +35,20 @@ const Step5 = ({ step, setStep, currentSoiIndex, setCurrentSoiIndex, recipe, set
       const ref = collection(db, "recipes");
       await addDoc(ref, { ...recipe, uid: user.uid });
       setTimeout(() => {
-        navigate("/");
-      }, 2000);
+        navigate("/ViewRecipes");
+      }, 1500);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className={`animate ${styles.step}`}>
-      <h2>
-        The recipe <strong>{recipe.name}</strong> has been saved, find it in "View recipes" section..!
-      </h2>
-      <p>You will be redirected..!</p>
+      <div className={styles.top}>
+        <h2>
+          The recipe <strong>{recipe.name}</strong> has been saved, find it in "View recipes" section..!
+        </h2>
+        <p>You will be redirected..!</p>
+      </div>
+      <div className={styles.bottom}>bottom</div>
     </div>
   );
 };

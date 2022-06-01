@@ -17,7 +17,7 @@ const RecalculatedRecipe: React.FC<{ multiplier: number }> = (props) => {
   return (
     <div className={styles.recipe}>
       <div className={styles.row}>
-        <h1>new {selectedRecipe.name}</h1>
+        <h1>{selectedRecipe.name} [Recalculated]</h1>
       </div>
       <p>
         <span id="bold">Info: </span>

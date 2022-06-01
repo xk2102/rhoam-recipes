@@ -5,7 +5,7 @@ import styles from "./Modal.module.css";
 import { useState, useContext, useEffect } from "react";
 import RecalculatedRecipe from "../components/ViewRecipes/RecalculatedRecipe";
 import { GlobalContext } from "../contexts/GlobalContext";
-import Logo from "../components/Boxes/BoxB/Logo";
+import { InputRow } from "../components/InputRow";
 
 export default function Modal({ modalIsOpen, resetModal, modalContent, modalType }) {
   const [multiplier, setMultiplier] = useState(1);
@@ -37,22 +37,20 @@ export default function Modal({ modalIsOpen, resetModal, modalContent, modalType
     return (
       <div className={`${styles.modal} animate`}>
         <div className={styles.content}>
-          <div className={styles.header}>
-            <Logo />
-          </div>
-          <div className={styles.row}>
-            <label>{`New ${selectedIngredient.name} quantity (was ${selectedIngredient.quantity}): `}</label>
-          </div>
-          <div className={styles.row}>
-            <input type="number" maxLength="6" min="1" value={newQuantity} onChange={(event) => onChange_handleNewQuantity(event)}></input>
-            <label>grams</label>
-          </div>
+          <div className={styles.header}></div>
+          <InputRow
+            label={`Enter new ${selectedIngredient.name} quantity (was ${selectedIngredient.quantity} grams)`}
+            name="new-quantity"
+            type="number"
+            value={newQuantity}
+            handleValue={(event) => onChange_handleNewQuantity(event)}
+          />
           <RecalculatedRecipe multiplier={multiplier} />
           {modalContent}
         </div>
         <div className={styles.footer}>
           <button
-            className={styles.alert5Button}
+            id={styles.close}
             data-cy="modal-close-button"
             onClick={() => {
               setNewQuantity(0);

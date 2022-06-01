@@ -9,15 +9,41 @@
   justify-content: space-between;
 }
 
-.row {
+.step > .top {
+  /* BORDER */
+  border: 0px solid;
+}
+
+.step > .top > .button_row {
   /* BORDER */
   border: 0px solid;
   /* DISPLAY */
   display: flex;
   flex-direction: row;
-  /* MARGIN, PADDING */
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.step > .top > .button_row > button#noThankYou,
+.step > .top > .button_row > button#yesPlease,
+.step > .top > .button_row > button#back {
+  flex: 1;
+  margin: 0 5px 0 5px;
+  background-color: var(--black2);
+}
+.step > .top > .button_row > button#noThankYou:hover,
+.step > .top > .button_row > button#yesPlease:hover,
+.step > .top > .button_row > button#back:hover {
+  background-color: var(--black3);
+}
+.step > .top > .button_row > button#noThankYou:active,
+.step > .top > .button_row > button#yesPlease:active,
+.step > .top > .button_row > button#back:active {
+  background-color: var(--black4);
+}
+
+.step > .bottom {
+  /* BORDER */
+  border: 0px solid;
 }
 .error {
   /* COLORS */

@@ -15,13 +15,11 @@ type Step3Props = {
   setStep: React.Dispatch<React.SetStateAction<number>>;
   recipe: recipe;
   setRecipe: React.Dispatch<React.SetStateAction<recipe>>;
-  currentSoiIndex: number;
-  setCurrentSoiIndex: React.Dispatch<React.SetStateAction<number>>;
 };
 // --------------------------------------------------------------
 // --------------------------------------------------------------
 // --------------------------------------------------------------
-const Step3 = ({ step, setStep, currentSoiIndex, setCurrentSoiIndex, recipe, setRecipe }: Step3Props) => {
+const Step3 = ({ step, setStep, recipe, setRecipe }: Step3Props) => {
   // --------------------------------------------------------------
   // HANDLERS------------------------------------------------------
   // --------------------------------------------------------------
@@ -40,20 +38,25 @@ const Step3 = ({ step, setStep, currentSoiIndex, setCurrentSoiIndex, recipe, set
     <div className={`animate ${styles.step}`}>
       <div className={styles.top}>
         <h2>Would you like to add another set of ingredients..?</h2>
-        <div className={styles.row}>
-          <button onClick={() => setStep(5)}>NO, thank you</button>
+        <div className={styles.button_row}>
+          <button id={styles.noThankYou} onClick={() => setStep(5)}>
+            NO, thank you
+          </button>
           <button
+            id={styles.yesPlease}
             onClick={() => {
-              setStep(4);
-              setCurrentSoiIndex(currentSoiIndex + 1);
+              setStep(2);
+              // setCurrentSoiIndex(currentSoiIndex + 1);
               onClick_addASetOfIngredients();
             }}
           >
             Yes, please
           </button>
         </div>
-        <div className={styles.row}>
-          <button onClick={() => setStep(2)}>BACK (to 1st set of ingredients)</button>
+        <div className={styles.button_row}>
+          <button id={styles.back} onClick={() => setStep(2)}>
+            BACK (to last set of ingredients)
+          </button>
         </div>
       </div>
       <div className={styles.bottom}></div>

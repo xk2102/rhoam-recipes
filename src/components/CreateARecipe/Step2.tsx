@@ -2,12 +2,11 @@
 import styles from "./Step2.module.css";
 // LIBRARIES ---------------------------------------------
 // REACT -------------------------------------------------
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // COMPONENTS----------------------------------------------
 // MODULES ------------------------------------------------
 import { ingredient, recipe, step } from "../../modules/types";
 import { InputRow } from "../InputRow";
-var _ = require("lodash");
 // COMPONENT----------------------------------------------
 
 // --------------------------------------------------------------
@@ -18,12 +17,11 @@ type Step2Props = {
   setStep: React.Dispatch<React.SetStateAction<number>>;
   recipe: recipe;
   setRecipe: React.Dispatch<React.SetStateAction<recipe>>;
-  currentSoiIndex: number;
 };
 // --------------------------------------------------------------
 // --------------------------------------------------------------
 // --------------------------------------------------------------
-const Step2 = ({ step, setStep, recipe, setRecipe, currentSoiIndex }: Step2Props) => {
+const Step2 = ({ step, setStep, recipe, setRecipe }: Step2Props) => {
   // --------------------------------------------------------------
   // --STATE-------------------------------------------------------
   // --------------------------------------------------------------
