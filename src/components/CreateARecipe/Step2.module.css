@@ -1,10 +1,176 @@
 .step {
-  /* BORDER */
+  /* border */
   border: 0px solid;
-  /* SIZE */
+  /* size */
   flex: 1;
-  /* DISPLAY */
+  /* display */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.step > .top {
+  /* border */
+  border: 0px solid;
+  /* display */
+  display: flex;
+  flex-direction: column;
+}
+
+.step > .top > .header_row {
+  /* border */
+  border: 0px solid;
+  /* display */
+  display: flex;
+  flex-direction: row;
+}
+
+.step > .top > .ingredient_row {
+  /* border */
+  border: 0px solid;
+  /* display */
+  display: flex;
+  flex-direction: row;
+}
+
+.step > .top > .ingredient_row > .ingredient_index,
+.step > .top > .ingredient_row > .ingredient_name,
+.step > .top > .ingredient_row > .ingredient_quantity {
+  /* border */
+  border: 0px solid;
+}
+
+.step > .top > .ingredient_row > .ingredient_index {
+  /* size */
+  flex: 0.5;
+  /* display */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.step > .top > .ingredient_row > .ingredient_name,
+.step > .top > .ingredient_row > .ingredient_quantity {
+  /* size */
+  flex: 3;
+}
+
+.step > .top > .ingredients_buttons_row,
+.step > .top > .steps_buttons_row {
+  /* border */
+  border: 0px solid;
+  /* display */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step > .top > .ingredients_buttons_row > .right,
+.step > .top > .steps_buttons_row > .right,
+.step > .top > .ingredients_buttons_row > .left,
+.step > .top > .steps_buttons_row > .left {
+  /* display */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.step > .top > .ingredients_buttons_row > .left > .ingredients_error,
+.step > .top > .steps_buttons_row > .left > .steps_error {
+  /* COLORS */
+  color: var(--colorRed);
+}
+
+.step > .top > .ingredients_buttons_row > .right > button#minus,
+.step > .top > .ingredients_buttons_row > .right > button#plus,
+.step > .top > .steps_buttons_row > .right > button#minus,
+.step > .top > .steps_buttons_row > .right > button#plus {
+  /* border */
+  border: 0px solid;
+  /* size */
+  width: 1.25rem;
+  height: 1.25rem;
+  /* display */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* colors */
+  background-color: var(--black2);
+  /* fonts overwrite */
+  font-size: xx-large;
+  /* margin */
+  margin-left: 10px;
+}
+.step > .top > .ingredients_buttons_row > .right > button#minus:hover,
+.step > .top > .ingredients_buttons_row > .right > button#plus:hover,
+.step > .top > .steps_buttons_row > .right > button#minus:hover,
+.step > .top > .steps_buttons_row > .right > button#plus:hover {
+  /* colors */
+  background-color: var(--black3);
+}
+.step > .top > .ingredients_buttons_row > .right > button#minus:active,
+.step > .top > .ingredients_buttons_row > .right > button#plus:active,
+.step > .top > .steps_buttons_row > .right > button#minus:active,
+.step > .top > .steps_buttons_row > .right > button#plus:active {
+  /* colors */
+  background-color: var(--black4);
+}
+
+.step > .top > .step_row {
+  /* border */
+  border: 0px solid;
+  /* display */
+  display: flex;
+  flex-direction: row;
+}
+
+.step > .top > .step_row > .step_index,
+.step > .top > .step_row > .step_name {
+  /* border */
+  border: 0px solid;
+}
+
+.step > .top > .step_row > .step_index {
+  /* size */
+  flex: 0.5;
+  /* display */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.step > .top > .step_row > .step_name {
+  /* size */
+  flex: 6;
+}
+
+.step > .bottom {
+  /* border */
+  /* display */
+  display: flex;
+  flex-direction: row;
+}
+
+.step > .bottom > button#back,
+.step > .bottom > button#next {
+  /* size */
+  flex: 1;
+  /* color */
+  background-color: var(--black2);
+  margin: 0 5px 0 5px;
+}
+.step > .bottom > button#back:hover,
+.step > .bottom > button#next:hover {
+  /* color */
+  background-color: var(--black3);
+}
+.step > .bottom > button#back:active,
+.step > .bottom > button#next:active {
+  /* size */
+  flex: 1;
+  /* color */
+  background-color: var(--black4);
 }

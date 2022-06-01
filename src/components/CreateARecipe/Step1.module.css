@@ -25,6 +25,7 @@
 .step > .bottom > .row > button#next,
 .step > .bottom > .row > button#clear {
   flex: 1;
+  margin: 0 5px 0 5px;
   background-color: var(--black2);
 }
 .step > .bottom > .row > button#next:hover,

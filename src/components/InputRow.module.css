@@ -7,12 +7,13 @@
   position: relative;
   /* display */
   display: flex;
-  flex-direction: column;
   /* margin */
-  margin: 0.5rem 0px 0.5rem 0px;
+  margin: 0.2rem 0px 0.2rem 0px;
+  /* overflow-x: hidden; */
 }
 
 .form__input {
+  width: 100%;
   /* padding */
   padding: 1rem;
   /* fonts */

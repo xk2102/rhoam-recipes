@@ -114,12 +114,12 @@ const Step1: React.FC<{ step: number; setStep: React.Dispatch<React.SetStateActi
         <h2>Let's start with: </h2>
         <InputRow label="Name" name="name" type="text" value={name} handleValue={(event) => onChange_handleRecipe(event)} valueError={nameError} />
         <InputRow label="Info" name="info" type="text" value={info} handleValue={(event) => onChange_handleRecipe(event)} valueError={infoError} />
-        <InputRow label="prep Time (mins)" type="number" name="prepTime" value={prepTime} handleValue={(event) => onChange_handleRecipe(event)} valueError={prepTimeError} />
-        <InputRow label="cook Time (mins)" type="number" name="cookTime" value={cookTime} handleValue={(event) => onChange_handleRecipe(event)} valueError={cookTimeError} />
-        {nameError === "empty-name" && <p className={styles.error}>Please provide a name..!</p>}
-        {infoError === "empty-info" && <p className={styles.error}>Please provide some info..!</p>}
-        {prepTimeError === "nan-prepTime" && <p className={styles.error}>Prep time should be a number..!</p>}
-        {cookTimeError === "nan-cookTime" && <p className={styles.error}>Cook time should be a number..!</p>}
+        <InputRow label="Prep time (mins)" type="number" name="prepTime" value={prepTime} handleValue={(event) => onChange_handleRecipe(event)} valueError={prepTimeError} />
+        <InputRow label="Cook time (mins)" type="number" name="cookTime" value={cookTime} handleValue={(event) => onChange_handleRecipe(event)} valueError={cookTimeError} />
+        {nameError === "empty-name" && <p className={`animate ${styles.error}`}>Please provide a name..!</p>}
+        {infoError === "empty-info" && <p className={`animate ${styles.error}`}>Please provide some info..!</p>}
+        {prepTimeError === "nan-prepTime" && <p className={`animate ${styles.error}`}>Prep time should be a number..!</p>}
+        {cookTimeError === "nan-cookTime" && <p className={`animate ${styles.error}`}>Cook time should be a number..!</p>}
       </div>
       <div className={styles.bottom}>
         <div className={styles.row}>

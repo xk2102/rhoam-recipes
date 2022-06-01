@@ -2,8 +2,9 @@
 import styles from "./CreateARecipe.module.css";
 // LIBRARIES ---------------------------------------------
 import { Link } from "react-router-dom";
+import { uid } from "uid";
 // REACT -------------------------------------------------
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // COMPONENTS----------------------------------------------
 import Step1 from "./CreateARecipe/Step1";
 import Step2 from "./CreateARecipe/Step2";
@@ -23,6 +24,7 @@ export default function CreateARecipe() {
   const [step, setStep] = useState<number>(1);
   const [currentSoiIndex, setCurrentSoiIndex] = useState<number>(0);
   const [recipe, setRecipe] = useState<recipe>({
+    id: uid(),
     name: "",
     info: "",
     prepTime: 0,
@@ -37,10 +39,11 @@ export default function CreateARecipe() {
       },
     ],
   });
+  useEffect(() => console.log("recipe: ", recipe), [recipe]);
   if (user) {
     return (
       <div className={styles.createARecipe}>
-        <h1>Create a recipe</h1>
+        <h1>Create a recipe {`(${step}/3)`}</h1>
         {step === 1 && <Step1 step={step} setStep={setStep} recipe={recipe} setRecipe={setRecipe} />}
         {step === 2 && <Step2 step={step} setStep={setStep} recipe={recipe} setRecipe={setRecipe} currentSoiIndex={currentSoiIndex} />}
         {step === 3 && <Step3 step={step} setStep={setStep} recipe={recipe} setRecipe={setRecipe} currentSoiIndex={currentSoiIndex} setCurrentSoiIndex={setCurrentSoiIndex} />}
