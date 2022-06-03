@@ -40,8 +40,10 @@ const Recipe: React.FC = (props) => {
   return (
     <div className={`animate ${styles.recipe}`}>
       <div className={styles.row}>
-        {isMobileScreen && <HiOutlineArrowLeft size={30} style={{ marginRight: "15px" }} className="backIcon" onClick={() => setSelectedRecipe(emptyRecipe)} />}
+        {/* {isMobileScreen && <HiOutlineArrowLeft size={30} style={{ marginRight: "15px" }} className="backIcon" onClick={() => setSelectedRecipe(emptyRecipe)} />} */}
+        <HiOutlineArrowLeft size={30} style={{ marginRight: "15px", cursor: "pointer" }} className="backIcon" onClick={() => setSelectedRecipe(emptyRecipe)} />
         <h1>{selectedRecipe.name}</h1>
+        <span>asd</span>
       </div>
       {showTip && <Tip setShowTip={setShowTip} />}
       <p>
