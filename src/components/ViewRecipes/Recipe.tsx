@@ -1,8 +1,9 @@
 // CSS, REACT ICONS --------------------------------------
 import styles from "./Recipe.module.css";
 import { HiOutlineArrowLeft } from "react-icons/hi";
+import { FiTrash, FiEdit } from "react-icons/fi";
 // LIBRARIES ---------------------------------------------
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 // REACT -------------------------------------------------
 import { useEffect, useContext, useState } from "react";
 import { GlobalContext } from "../../contexts/GlobalContext";
@@ -14,7 +15,7 @@ import { emptyIngredient } from "../../modules/emptyIngredient";
 // COMPONENT----------------------------------------------
 
 const Recipe: React.FC = (props) => {
-  const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
+  // const isMobileScreen = useMediaQuery({ query: "(max-width: 600px)" });
   // ------------------------------------------------------------------
   // PROPS-------------------------------------------------------------
   // ------------------------------------------------------------------
@@ -40,10 +41,14 @@ const Recipe: React.FC = (props) => {
   return (
     <div className={`animate ${styles.recipe}`}>
       <div className={styles.row}>
-        {/* {isMobileScreen && <HiOutlineArrowLeft size={30} style={{ marginRight: "15px" }} className="backIcon" onClick={() => setSelectedRecipe(emptyRecipe)} />} */}
-        <HiOutlineArrowLeft size={30} style={{ marginRight: "15px", cursor: "pointer" }} className="backIcon" onClick={() => setSelectedRecipe(emptyRecipe)} />
-        <h1>{selectedRecipe.name}</h1>
-        <span>asd</span>
+        <div className={styles.left}>
+          <HiOutlineArrowLeft size={30} style={{ marginRight: "15px", cursor: "pointer" }} className="backIcon" onClick={() => setSelectedRecipe(emptyRecipe)} />
+          <h1>{selectedRecipe.name}</h1>
+        </div>
+        <div className={styles.right}>
+          <FiEdit size={30} style={{ marginLeft: "15px", cursor: "pointer" }} />
+          <FiTrash size={30} style={{ marginLeft: "15px", cursor: "pointer" }} />
+        </div>
       </div>
       {showTip && <Tip setShowTip={setShowTip} />}
       <p>
